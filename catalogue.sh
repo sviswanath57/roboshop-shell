@@ -60,7 +60,7 @@ VALIDATE $? "unziping Catalogue"
 
 npm install &>> $LOGFILE
 VALIDATE $? "Catalogue npm installed"
-
+cd /home/centos/roboshop-shell
 cp /home/centos/roboshop-shell/catalogue.service /etc/systemd/system/catalogue.service &>> $LOGFILE
 VALIDATE $? "Copy done Catalogue.service"
 
@@ -77,7 +77,7 @@ VALIDATE $? "mongo.repo"
 dnf install mongodb-org-shell -y &>> $LOGFILE
 VALIDATE $? "mongodb-org-shell"
 
-mongo --host mangodb.devopslife.cloud </app/schema/catalogue.js &>> $LOGFILE
+mongo --host mangodb.devopslife.cloud <app/schema/catalogue.js &>> $LOGFILE
 VALIDATE $? "catalogue.js loaeded to mongodb"
 
 
