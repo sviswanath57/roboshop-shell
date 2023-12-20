@@ -55,7 +55,7 @@ VALIDATE $? "Download Catalogue"
 
 cd /home/centos/roboshop-shell/app
 
-unzip /tmp/catalogue.zip &>> $LOGFILE
+unzip -o /tmp/catalogue.zip &>> $LOGFILE
 VALIDATE $? "unziping Catalogue"
 
 npm install &>> $LOGFILE
@@ -77,7 +77,7 @@ VALIDATE $? "mongo.repo"
 dnf install mongodb-org-shell -y &>> $LOGFILE
 VALIDATE $? "mongodb-org-shell"
 
-mongo --host mangodb.devopslife.cloud </app/schema/catalogue.js &>> $LOGFILE
+mongo --host mangodb.devopslife.cloud <app/schema/catalogue.js &>> $LOGFILE
 
 
 
