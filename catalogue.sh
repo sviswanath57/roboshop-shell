@@ -47,7 +47,7 @@ else
     echo "user exists"
 fi
 
-mkdir /home/centos/roboshop-shell/app
+mkdir -p /home/centos/roboshop-shell/app
 VALIDATE $? "app dir"
 
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>> $LOGFILE
