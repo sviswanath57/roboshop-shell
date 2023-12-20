@@ -77,7 +77,7 @@ VALIDATE $? "mongo.repo"
 dnf install mongodb-org-shell -y &>> $LOGFILE
 VALIDATE $? "mongodb-org-shell"
 
-mongo --host mangodb.devopslife.cloud <app/schema/catalogue.js &>> $LOGFILE
+mongo --host mangodb.devopslife.cloud </app/schema/catalogue.js &>> $LOGFILE
 VALIDATE $? "catalogue.js loaeded to mongodb"
 
 
