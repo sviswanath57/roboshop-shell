@@ -23,8 +23,18 @@ VALIDATE(){
 
 cp /home/centos/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
 VALIDATE $? "mongo.repo copy"
-#dnf install mongodb-org -y
 
-#systemctl enable mongod
-#systemctl start mongod
+dnf install mongodb-org -y &>> $LOGFILE
+VALIDATE $? "Installing MongoDB" &>> $LOGFILE
 
+systemctl enable mongod
+VALIDATE $? "Enable MongoDB" &>> $LOGFILE
+
+systemctl start mongod
+VALIDATE $? "Starting MongoDB" &>> $LOGFILE
+
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf &>> $LOGFILE
+VALIDATE $? "IP change 127.0.0.1 to 0.0.0.0" &>> $LOGFILE
+
+systemctl restart mongod
+VALIDATE $? "Restarting MongoDB" &>> $LOGFILE
